@@ -24,6 +24,9 @@ function App() {
   useEffect(()=>{
     passwordGenerator()
   },[length,charAllowed,numbersAllowed,passwordGenerator])
+  let copyText=()=>{
+    window.navigator.clipboard.writeText(password)
+  }
   return (
     <>
       <div className='flex justify-center items-center min-h-screen bg-gray-800 px-4'>
@@ -35,7 +38,7 @@ function App() {
               value={password}
               className='bg-white text-black p-2 rounded w-full sm:w-auto flex-1'
             />
-            <button className='bg-blue-700 text-white px-4 py-2 rounded w-full sm:w-auto'>
+            <button className='bg-blue-700 text-white px-4 py-2 rounded w-full sm:w-auto' onClick={copyText}>
               Copy
             </button>
           </div>
